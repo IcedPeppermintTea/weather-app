@@ -1,0 +1,115 @@
+/***** resets - from: https://www.joshwcomeau.com/css/custom-css-reset/ *****/
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+
+/********** global color variables *********/
+:root {
+  /* Surfaces */
+  --canvas:        #e6e4df;  /* page/board behind the app */
+  --bg:            #f7f4ef;  /* app background (paper) */
+  --surface:       #fffdfa;  /* cards, search input */
+  --surface-sunk:  #f2ece1;  /* chips, active rows, hourly "now" cell */
+  --surface-hover: #ece4d6;  /* chip/row hover */
+  --surface-cool:  #eef1f6;  /* rain-highlighted hourly cell */
+
+  /* Text */
+  --ink:           #1b1a17;  /* headings, temps, primary text */
+  --ink-2:         #6f6a61;  /* body, secondary values */
+  --ink-3:         #8b877e;  /* captions, degree mark, inactive toggle */
+  --ink-4:         #a9a49a;  /* mono eyebrow labels, meta */
+
+  /* Lines */
+  --rule:          #e2dbcd;  /* dividers, empty track fill */
+  --hairline:      rgba(27, 26, 23, 0.07);  /* card inset ring */
+  --hairline-2:    rgba(27, 26, 23, 0.09);  /* input ring */
+
+  /* Accents */
+  --sun:           oklch(0.72 0.14 45);   /* UV/warm accent */
+  --sun-deep:      oklch(0.60 0.15 45);   /* "High" label */
+  --sun-ink:       oklch(0.50 0.14 45);   /* badge text */
+  --sun-tint:      oklch(0.93 0.06 45);   /* badge background */
+  --rain:          oklch(0.65 0.14 235);  /* precip bars, drops */
+  --rain-soft:     oklch(0.72 0.12 235);  /* low-probability bars */
+  --rain-ink:      oklch(0.55 0.14 235);  /* emphasized % text */
+  --good:          oklch(0.48 0.12 150);  /* AQI "Good" text */
+  --good-ink:      oklch(0.45 0.12 150);
+  --good-tint:     oklch(0.93 0.06 150);
+  --link:          #a35a1f;
+  --link-hover:    #6d3a10;
+
+  /* Error state */
+  --error-bg:      #fdf1ec;
+  --error-ring:    rgba(180, 80, 40, 0.18);
+  --error-label:   oklch(0.58 0.14 35);
+  --error-title:   #3a1f14;
+  --error-body:    #7a5344;
+
+  /* Gradients / dimensional icons */
+  --temp-range:    linear-gradient(90deg, oklch(0.72 0.10 235), oklch(0.75 0.13 60));
+  --daylight-bar:  linear-gradient(90deg, oklch(0.80 0.10 80), oklch(0.70 0.15 45));
+  --sun-orb:       radial-gradient(circle at 32% 28%, #ffeeb0, #f7ab3f 56%, #d9700f);
+  --sun-orb-glow:  0 20px 44px -14px rgba(217,112,15,.6), inset -8px -10px 22px rgba(120,50,0,.16);
+  --cloud-lit:     linear-gradient(160deg, #ffffff, #dde3ec);
+  --cloud-mid:     linear-gradient(155deg, #ffffff, #e7ebf2);
+  --cloud-shade:   linear-gradient(160deg, #f7f9fc, #d7dee8);
+  --cloud-grey:    linear-gradient(160deg, #f0f3f8, #cdd5e0);  /* overcast variant */
+  --moon-orb:      radial-gradient(circle at 34% 30%, #f4f6fb, #c9d2e0 62%, #a8b3c6);
+  --card-shadow:   0 40px 90px -50px rgba(40,30,15,.55);
+
+  /* Skeletons */
+  --skeleton:      linear-gradient(90deg, #efe9de 25%, #f7f3ec 50%, #efe9de 75%);
+}
