@@ -1,3 +1,4 @@
+/****** main styles ******/
 body {
   display: flex;
   justify-content: center;
@@ -12,6 +13,36 @@ body {
   background-color: var(--bg);
   border-radius: 22px;
   box-shadow: rgba(40,30,15,.55) 0 40px 90px -50px, rgba(27,26,23,.07) 0 0 0 1px;
+  padding: 72px 80px 120px;
+}
+
+/********* search bar ********/
+.search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 46px;
+  padding: 0px 18px;
+  border-radius: 99px;
+  background: rgb(255, 253, 250);
+  box-shadow: rgba(27, 26, 23, 0.06) 0px 1px 0px, rgba(27, 26, 23, 0.09) 0px 0px 0px 1px inset;
+  font-family: var(--font-body);
+}
+
+.search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  width: 100%; 
+}
+
+.icon-gray-circle {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  box-shadow: rgb(169, 164, 154) 0px 0px 0px 2px inset;
 }
 
 @media (max-width: 768px) {
@@ -19,6 +50,6 @@ body {
     width: 100vmin;
     margin: 0;
     border-radius: 0px;
+    padding: 36px 40px 60px;
   }
-
 }

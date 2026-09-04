@@ -112,4 +112,9 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Skeletons */
   --skeleton:      linear-gradient(90deg, #efe9de 25%, #f7f3ec 50%, #efe9de 75%);
+
+  /* Fonts */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
