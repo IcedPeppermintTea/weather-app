@@ -1,11 +1,14 @@
 import Match from "./Match";
 
-function Matches() {
+function Matches({ matchResults, onSelectCity }) {
+  const matches = matchResults.length;
   return (
     <div className="matches-card">
-      <span className="eyebrow-label"># Matches</span>
+      <span className="eyebrow-label">{matches} Matches</span>
       <div>
-        <Match></Match>
+        {matchResults.map((match, match_id) => (
+          <Match key={match_id} match={match} selectCity={onSelectCity}></Match>
+        ))}
       </div>
     </div>
   );

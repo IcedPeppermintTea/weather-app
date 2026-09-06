@@ -59,7 +59,6 @@ body {
   background: rgb(255, 253, 250);
   box-shadow: rgba(27, 26, 23, 0.06) 0px 1px 0px, rgba(27, 26, 23, 0.09) 0px 0px 0px 1px inset;
   margin-top: 10px;
-  padding: 11px 18px 7px;
   border-radius: 20px;
 }
 
@@ -68,4 +67,42 @@ body {
   color: var(--ink-4);
   font-family: var(--font-mono);
   letter-spacing: 0.16em;
+  font-size: 10px;
+  padding: 0 18px;
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 18px;
+  align-items: baseline;
+}
+
+.match:hover {
+  background-color: var(--surface-hover);
+}
+
+.match-name-info {
+  font-family: var(--font-body);
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.match-name {
+  font-weight: 500;
+}
+
+.match-admin-country {
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.match span {
+  display: none
+}
+
+.match:hover span {
+  display: inline;
 }

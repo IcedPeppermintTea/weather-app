@@ -4,7 +4,7 @@ import Matches from "./Matches.jsx";
 function Search({ selectedCity, onSelectCity }) {
   // user is typing possibly city matches
   const [query, setQuery] = useState("");
-  const [result, setResult] = useState([]);
+  const [results, setResults] = useState([]);
 
   // if user stops typing for 300ms - send api request to geolocation
   useEffect(() => {
@@ -16,18 +16,19 @@ function Search({ selectedCity, onSelectCity }) {
 
     // send api request only after 300ms
     const searchTimeout = setTimeout(async () => {
-      if (!ignore) {
-        try {
-          const response = await fetch(
-            `https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=4&language=en&format=json`,
-          );
-          const data = await response.json();
-          setResult(data.results ?? []);
+      try {
+        const response = await fetch(
+          `https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=6&language=en&format=json`,
+        );
+        const data = await response.json();
 
-          console.log(result);
-        } catch (error) {
-          console.log(error);
+        if (!ignore) {
+          setResults(data.results ?? []);
         }
+
+        console.log(data.results);
+      } catch (error) {
+        console.log(error);
       }
     }, 300);
 
@@ -50,7 +51,7 @@ function Search({ selectedCity, onSelectCity }) {
           onChange={(e) => setQuery(e.target.value)}
         ></input>
       </div>
-      <Matches></Matches>
+      <Matches matchResults={results} onSelectCity={onSelectCity}></Matches>
     </>
   );
 }
