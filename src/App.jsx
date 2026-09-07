@@ -7,9 +7,14 @@ import WeatherDashboard from "./components/WeatherDashboard";
 function App() {
   // a city is selected by the user (type object)
   const [selectedCity, setSelectedCity] = useState(null);
+  // current forecase - based on selected city (type object)
+  const [forecast, setForecast] = useState(null);
 
-  function onSelectCity(city) {
+  async function onSelectCity(city) {
     setSelectedCity(city);
+    setForecast(null);
+    // call forecast api
+    const response = await fetch();
   }
 
   return (
