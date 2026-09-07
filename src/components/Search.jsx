@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Matches from "./Matches.jsx";
 
-function Search({ selectedCity, onSelectCity }) {
+function Search({ onSelectCity }) {
   // user is typing possibly city matches
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -51,7 +51,9 @@ function Search({ selectedCity, onSelectCity }) {
           onChange={(e) => setQuery(e.target.value)}
         ></input>
       </div>
-      <Matches matchResults={results} onSelectCity={onSelectCity}></Matches>
+      {query ? (
+        <Matches matchResults={results} onSelectCity={onSelectCity}></Matches>
+      ) : null}
     </>
   );
 }

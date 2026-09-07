@@ -60,6 +60,7 @@ body {
   box-shadow: rgba(27, 26, 23, 0.06) 0px 1px 0px, rgba(27, 26, 23, 0.09) 0px 0px 0px 1px inset;
   margin-top: 10px;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .eyebrow-label {
@@ -100,9 +101,9 @@ body {
 }
 
 .match span {
-  display: none
+  visibility: hidden;
 }
 
 .match:hover span {
-  display: inline;
+  visibility:visible;
 }
