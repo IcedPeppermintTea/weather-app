@@ -6,8 +6,8 @@ function WeatherDashboard(selectedCity) {
       <CityMeta
         population={selectedCity.population ?? "-"}
         elevation={selectedCity.elevation}
-        lat={selectedCity.latitude.toFixed(2)}
-        lon={selectedCity.longitude.toFixed(2)}
+        lat={selectedCity.latitude}
+        lon={selectedCity.longitude}
       ></CityMeta>
     </div>
   );

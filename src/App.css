@@ -1,19 +1,25 @@
 /****** main styles ******/
-body {
+html, body {
+  height: 100%;
+  margin: 0;
   display: flex;
   justify-content: center;
-  margin: 0;
+}
+
+body {
   min-height: 100vh;
   background: var(--canvas);
 }
 .app {
-  width: min(1180px, 94vw);   /* caps at your design width, shrinks on small screens */
-  max-height: 100vh;          /* only kicks in if the app itself scrolls internally */
+  width: min(1180px, 94vw);  
+  max-height: 100vh;          
   margin: 20px 0;
   background-color: var(--bg);
   border-radius: 22px;
   box-shadow: rgba(40,30,15,.55) 0 40px 90px -50px, rgba(27,26,23,.07) 0 0 0 1px;
-  padding: 72px 80px 120px;
+  padding: 72px 80px 80px;
+  height: calc(100vh - 40px);
+  overflow: auto;
 }
 
 /********* search bar ********/
@@ -106,4 +112,14 @@ body {
 
 .match:hover span {
   visibility:visible;
+}
+
+/******* empty state ********/ 
+.empty-state {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-body);
+  color: var(--ink-3);
 }

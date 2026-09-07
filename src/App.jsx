@@ -8,12 +8,16 @@ function App() {
   // a city is selected by the user (type object)
   const [selectedCity, setSelectedCity] = useState(null);
 
+  function onSelectCity(city) {
+    setSelectedCity(city);
+  }
+
   return (
     <div className="app">
       <h1>Weather</h1>
-      <Search onSelectCity={setSelectedCity}></Search>
+      <Search onSelectCity={onSelectCity}></Search>
       {selectedCity ? (
-        <WeatherDashboard selectedCity={selectedCity} />
+        <WeatherDashboard onSelectCity={onSelectCity} />
       ) : (
         <EmptyState />
       )}
