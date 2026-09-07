@@ -1,3 +1,4 @@
+import CityHeader from "./CityHeader";
 import CityMeta from "./CityMeta";
 
 function WeatherDashboard({ selectedCity }) {
@@ -5,11 +6,16 @@ function WeatherDashboard({ selectedCity }) {
   const lon = selectedCity.lon.toFixed(2);
   return (
     <div className="weather-dashboard">
+      <CityHeader
+        name={selectedCity.name}
+        admin1={selectedCity.admin1}
+        country={selectedCity.country}
+      />
       <CityMeta
         population={selectedCity.population ?? "-"}
-        elevation={selectedCity.elevation}
-        lat={lat}
-        lon={lon}
+        elevation={selectedCity.elevation ?? "-"}
+        lat={lat ?? "-"}
+        lon={lon ?? "-"}
       ></CityMeta>
     </div>
   );
