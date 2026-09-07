@@ -14,10 +14,9 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Weather</h1>
       <Search onSelectCity={onSelectCity}></Search>
       {selectedCity ? (
-        <WeatherDashboard onSelectCity={onSelectCity} />
+        <WeatherDashboard selectedCity={selectedCity} />
       ) : (
         <EmptyState />
       )}

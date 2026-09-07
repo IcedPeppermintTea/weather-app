@@ -10,6 +10,7 @@ function Search({ onSelectCity }) {
   function handleOnSelectCity(city) {
     onSelectCity(city);
     setQuery("");
+    console.log(city);
   }
 
   /* Handle querying on the search bar */
