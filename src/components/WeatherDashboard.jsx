@@ -1,5 +1,6 @@
 import CityHeader from "./CityHeader";
 import CityMeta from "./CityMeta";
+import CurrentConditions from "./CurrentConditions";
 import CurrentTemp from "./CurrentTemp";
 import LoadingScreen from "./LoadingScreen";
 
@@ -8,6 +9,11 @@ function WeatherDashboard({ selectedCity, forecast }) {
 
   const lat = selectedCity.lat.toFixed(2);
   const lon = selectedCity.lon.toFixed(2);
+
+  const nowIndex = forecast.hourly.time.findIndex(
+    (t) => t === forecast.current.time,
+  );
+  const currentUv = forecast.hourly.uv_index[nowIndex];
 
   function getWeatherIcon(code, isDay) {
     const map = {
@@ -37,6 +43,14 @@ function WeatherDashboard({ selectedCity, forecast }) {
     return map[code] ?? "clear-day";
   }
 
+  function getUvLabel(uvIndex) {
+    if (uvIndex < 3) return "Low";
+    if (uvIndex < 6) return "Moderate";
+    if (uvIndex < 8) return "High";
+    if (uvIndex < 11) return "Very high";
+    return "Extreme";
+  }
+
   return (
     <div className="weather-dashboard">
       <div className="flex-row flex-justify-between">
@@ -61,6 +75,13 @@ function WeatherDashboard({ selectedCity, forecast }) {
           getWeatherIcon={getWeatherIcon}
         />
       </div>
+      <CurrentConditions
+        humidity={forecast.current.relative_humidity_2m}
+        windSpeed={forecast.current.wind_speed_10m}
+        windDirection={forecast.current.wind_direction_10m}
+        uvIndex={currentUv}
+        uvLabel={getUvLabel(currentUv)}
+      />
     </div>
   );
 }

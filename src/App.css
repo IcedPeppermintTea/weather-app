@@ -198,6 +198,49 @@ body {
   text-transform: capitalize;
 }
 
+
+/******* current conditions ********/
+.conditions-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin-top: 20px;
+}
+
+.condition-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 20px 0;
+}
+
+.condition-cell--divider {
+  padding-left: 28px;
+  border-left: 1px solid var(--rule);
+}
+
+.condition-label {
+  font: 500 10px/1 var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.condition-value {
+  font: 400 30px/1 var(--font-display);
+  color: var(--ink);
+}
+
+.condition-unit {
+  font-size: 16px;
+  color: var(--ink-4);
+}
+
+.condition-unit--uv {
+  color: oklch(.6 .15 45);
+}
+
 /******* empty state ********/ 
 .empty-state {
   margin: 50px;
