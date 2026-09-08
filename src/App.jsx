@@ -14,14 +14,35 @@ function App() {
     setSelectedCity(city);
     setForecast(null);
     // call forecast api
-    const response = await fetch();
+    const params = new URLSearchParams({
+      latitude: city.lat,
+      longitude: city.lon,
+      timezone: "auto",
+      current:
+        "temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,is_day",
+      hourly:
+        "temperature_2m,weather_code,precipitation_probability,uv_index,is_day,visibility",
+      daily:
+        "weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max",
+    });
+
+    try {
+      const response = await fetch(
+        `https://api.open-meteo.com/v1/forecast?${params}`,
+      );
+      const data = await response.json();
+      setForecast(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <div className="app">
       <Search onSelectCity={onSelectCity}></Search>
       {selectedCity ? (
-        <WeatherDashboard selectedCity={selectedCity} />
+        <WeatherDashboard selectedCity={selectedCity} forecast={forecast} />
       ) : (
         <EmptyState />
       )}

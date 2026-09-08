@@ -1,7 +1,10 @@
 import CityHeader from "./CityHeader";
 import CityMeta from "./CityMeta";
+import LoadingScreen from "./LoadingScreen";
 
-function WeatherDashboard({ selectedCity }) {
+function WeatherDashboard({ selectedCity, forecast }) {
+  if (!forecast) return <LoadingScreen />;
+
   const lat = selectedCity.lat.toFixed(2);
   const lon = selectedCity.lon.toFixed(2);
   return (
