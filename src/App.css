@@ -136,7 +136,7 @@ body {
   font-family: var(--font-display);
   color: var(--ink);
   margin: 0;
-  font-size: 38px;
+  font-size: 60px;
   font-weight: 400;
 }
 
@@ -173,6 +173,29 @@ body {
   width: 1px;
   height: 13px;
   background-color: var(--rule);
+}
+
+
+
+/******** temperature ******/
+.current-temp-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.main-temp {
+  font-size: 100px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  font-family: var(--font-display);
+}
+
+.feels-like-temp {
+  color: var(--ink-3);
+  font-family: var(--font-body);
+  font-size: 16px;
+  text-transform: capitalize;
 }
 
 /******* empty state ********/ 

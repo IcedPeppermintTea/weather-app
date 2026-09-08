@@ -118,3 +118,13 @@ h1, h2, h3, h4, h5, h6 {
   --font-body: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
+
+
+/****** Utilities *****/ 
+.flex-row {
+  display: flex;
+}
+
+.flex-justify-between {
+  justify-content: space-between;
+}
