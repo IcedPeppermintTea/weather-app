@@ -19,6 +19,7 @@ function App() {
       longitude: city.lon,
       timezone: "auto",
       temperature_unit: "fahrenheit",
+      wind_speed_unit: "mph",
       current:
         "temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m,is_day",
       hourly:

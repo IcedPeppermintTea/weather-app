@@ -15,7 +15,7 @@ function CurrentConditions({
         <span className="condition-label">Wind</span>
         <span className="condition-value">
           {windSpeed}{" "}
-          <span className="condition-unit">km/h {windDirection}</span>
+          <span className="condition-unit">m/h {windDirection}</span>
         </span>
       </div>
       <div className="condition-cell condition-cell--divider">

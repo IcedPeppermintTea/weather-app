@@ -10,10 +10,11 @@ function WeatherDashboard({ selectedCity, forecast }) {
   const lat = selectedCity.lat.toFixed(2);
   const lon = selectedCity.lon.toFixed(2);
 
+  // get index for current hour
   const nowIndex = forecast.hourly.time.findIndex(
-    (t) => t === forecast.current.time,
+    (t) => t.slice(0, 13) === forecast.current.time.slice(0, 13), // "YYYY-MM-DDTHH"
   );
-  const currentUv = forecast.hourly.uv_index[nowIndex];
+  const currentUv = forecast.hourly.uv_index[nowIndex] ?? 0;
 
   function getWeatherIcon(code, isDay) {
     const map = {
