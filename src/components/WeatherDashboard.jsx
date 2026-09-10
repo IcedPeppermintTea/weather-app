@@ -2,6 +2,7 @@ import CityHeader from "./CityHeader";
 import CityMeta from "./CityMeta";
 import CurrentConditions from "./CurrentConditions";
 import CurrentTemp from "./CurrentTemp";
+import ExtraCards from "./ExtraCards";
 import LoadingScreen from "./LoadingScreen";
 import ToWear from "./ToWear";
 
@@ -57,6 +58,22 @@ function WeatherDashboard({ selectedCity, forecast }) {
     return "Extreme";
   }
 
+  function formatTime(isoString) {
+    return new Date(isoString).toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit",
+    });
+  }
+
+  function getDaylightLeft(sunsetIso) {
+    const diffMs = new Date(sunsetIso) - new Date();
+    if (diffMs <= 0) return "0h 0m";
+
+    const hours = Math.floor(diffMs / (1000 * 60 * 60));
+    const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+    return `${hours}h ${minutes}m`;
+  }
+
   return (
     <div className="weather-dashboard">
       <div className="flex-row flex-justify-between">
@@ -93,6 +110,12 @@ function WeatherDashboard({ selectedCity, forecast }) {
         code={forecast.current.weather_code}
         windSpeed={forecast.current.wind_speed_10m}
         precipProbability={currentPrecip}
+      />
+      <ExtraCards
+        uvIndex={currentUv}
+        uvLabel={getUvLabel(currentUv)}
+        sunset={formatTime(forecast.daily.sunset[0])}
+        daylightLeft={getDaylightLeft(forecast.daily.sunset[0])}
       />
     </div>
   );

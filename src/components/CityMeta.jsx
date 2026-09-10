@@ -1,6 +1,6 @@
 function CityMeta({ population, elevation, lat, lon }) {
   return (
-    <div className="city-meta">
+    <div className="city-meta margin-top-30">
       <div className="stat">
         <span className="stat-label">pop</span>
         <span className="stat-value">{population}</span>
