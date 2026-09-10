@@ -52,15 +52,6 @@ body {
   box-shadow: rgb(169, 164, 154) 0px 0px 0px 2px inset;
 }
 
-@media (max-width: 768px) {
-  .app {
-    width: 100vmin;
-    margin: 0;
-    border-radius: 0px;
-    padding: 36px 40px 60px;
-  }
-}
-
 /***** matches ******/
 .matches-card {
   background: rgb(255, 253, 250);
@@ -338,4 +329,72 @@ body {
   align-items: center;
   font-family: var(--font-body);
   color: var(--ink-3);
+}
+
+@media (max-width: 768px) {
+  .app {
+    width: 100vw;
+    margin: 0;
+    border-radius: 0px;
+    padding: 24px 20px 40px;
+    max-height: none;
+    height: 100vh;
+  }
+
+  .search {
+    height: 44px;
+    padding: 0 14px;
+  }
+
+  .city-header {
+    flex-wrap: wrap;
+  }
+
+  .city-name {
+    font-size: 38px;
+  }
+
+  .city-admin1-country {
+    font-size: 13px;
+  }
+
+  .city-meta {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+
+  .current-temp-section {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .main-temp {
+    font-size: clamp(40px, 16vw, 64px);
+  }
+
+  .conditions-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .condition-cell--divider {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+
+  .to-wear-message {
+    font-size: 22px;
+  }
+
+  .extra-cards {
+    flex-direction: column;
+  }
+
+  .extra-card {
+    max-width: none;
+    padding: 24px 22px 26px;
+    max-height: 300px;
+  }
 }
