@@ -3,6 +3,7 @@ import CityMeta from "./CityMeta";
 import CurrentConditions from "./CurrentConditions";
 import CurrentTemp from "./CurrentTemp";
 import LoadingScreen from "./LoadingScreen";
+import ToWear from "./ToWear";
 
 function WeatherDashboard({ selectedCity, forecast }) {
   if (!forecast) return <LoadingScreen />;
@@ -14,7 +15,11 @@ function WeatherDashboard({ selectedCity, forecast }) {
   const nowIndex = forecast.hourly.time.findIndex(
     (t) => t.slice(0, 13) === forecast.current.time.slice(0, 13), // "YYYY-MM-DDTHH"
   );
+  // get current uv index based on nowIndex
   const currentUv = forecast.hourly.uv_index[nowIndex] ?? 0;
+
+  // get current precipitation probability based on nowIndex
+  const currentPrecip = forecast.hourly.precipitation_probability[nowIndex];
 
   function getWeatherIcon(code, isDay) {
     const map = {
@@ -82,6 +87,12 @@ function WeatherDashboard({ selectedCity, forecast }) {
         windDirection={forecast.current.wind_direction_10m}
         uvIndex={currentUv}
         uvLabel={getUvLabel(currentUv)}
+      />
+      <ToWear
+        temp={forecast.current.temperature_2m}
+        code={forecast.current.weather_code}
+        windSpeed={forecast.current.wind_speed_10m}
+        precipProbability={currentPrecip}
       />
     </div>
   );
